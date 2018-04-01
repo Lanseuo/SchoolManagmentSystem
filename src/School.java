@@ -14,10 +14,8 @@ public class School {
 	 * @param teachers
 	 * @param students
 	 */
-	public School(String name, ArrayList<Teacher> teachers, ArrayList<Student> students) {
+	public School(String name) {
 		this.name = name;
-		this.teachers = teachers;
-		this.students = students;
 		this.currentFeesPerMonth = 100;
 	}
 	
@@ -31,12 +29,8 @@ public class School {
 		return students;
 	}
 	
-	public void addStudent(Student student) throws Exception {
-		for (int i = 0; i < students.size(); i++) {
-			if (students.get(i).getId() == student.getId()) {
-				throw new Exception("StudentId " + student.getId() + " has to be unique.");
-			}
-		}
+	public void addStudent(Student student) {
+		student.setId(this.students.size());
 		this.students.add(student);
 	}
 	
@@ -51,6 +45,7 @@ public class School {
 	}
 
 	public void addTeacher(Teacher teacher) {
+		teacher.setId(this.teachers.size());
 		this.teachers.add(teacher);
 	}
 	
@@ -65,6 +60,7 @@ public class School {
 	}
 	
 	public void addExpense(Expense expense) {
+		expense.setId(this.expenses.size());
 		this.expenses.add(expense);
 	}
 	

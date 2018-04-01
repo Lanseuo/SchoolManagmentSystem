@@ -15,8 +15,7 @@ public class Student {
 	 * @param name: name of the student
 	 * @param grade: grade of the student
 	 */
-	public Student(int id, String name, int grade) {
-		this.id = id;
+	public Student(String name, int grade) {
 		this.name = name;
 		this.grade = grade;
 		this.feesPaid = 0;
@@ -25,6 +24,10 @@ public class Student {
 	
 	public int getId() {
 		return this.id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -58,7 +61,7 @@ public class Student {
 	 * @param fees: fees that the student paid
 	 */
 	
-	public void payFees(int fees) {
+	public void payFees(float fees) {
 		this.feesPaid += fees;
 		
 	}
